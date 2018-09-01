@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>appointement</title>
+<!-- Add to Head -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"></script>
+<script src='//www.google.com/recaptcha/api.js'></script>
+<script src="assets/js/jquery-1.9.1.js"></script>
+<script src="assets/js/jquery.validate.min.js"></script>
+<!-- jQuery Form Validation code -->
+<!--<script type="text/javascript" language="JavaScript"
+-->
+
+
+// Phone allows for internatonal numbers and ext 
+
+
+<!--$(function () {
+
+$("#jQueryBootstrapForm").validate({
+        ignore: ".ignore",
+		
+        invalidHandler : function() {
+            $('html, body').animate({
+                scrollTop: $("#jQueryBootstrapForm").offset().top // scroll top to your form on error
+            }, 'slow' );
+        },
+        // Specify the validation rules
+        rules: {
+           fullname: { //Fullname
+                required: true,
+                minlength: 3
+            },
+            email: { //Email
+                required: true,
+                email: true
+            },
+            phone: { //Phone
+			    required: true, // true to require filed false not required
+                minlength: 6
+            },
+			dates: { //Phone
+			    required: false, // true to require filed false not required
+            },
+            comment: { //Message
+                required: false, // true to require filed false not required
+                minlength: 20,
+                maxlength: 1000
+			},
+			radio_email_phone: { //radios
+                required: true,
+			},
+			'checkbox_days[]': { //checkboxes
+                required: true,
+			},
+			radio_am_pm: { //radios
+                required: true,
+			},
+		
+      
+
+        // Specify the validation error messages
+        messages: {
+            fullname: {
+                required: "Please enter your full name",
+                minlength: "Please enter 3 or more characters"
+            },
+            email: {
+                required: "Please enter your email",
+                email: "Please enter a valid email"
+            },
+            phone: {
+                required: "Please enter your phone number"
+            },
+			dates: {
+                required: "Please enter preferred dates/date range"
+            },
+			comment: {
+                required: "Please enter your message",
+                minlength: "Please enter 20 or more characters",
+                maxlength: "Your message exceeds allowed characters"
+            },
+			radio_email_phone: { //radio
+                required:  "Please select contact me by Phone or Email"
+			},
+			'checkbox_days[]': { //radio
+                required:  "Please check one or more days",
+				minlength: 1
+			},
+			radio_am_pm: { //radio
+                required:  "Please select morning or afternoon"
+			},
+			hiddenRecaptcha: {
+                required: "Human response required"
+            },
+			submitHandler: function(form) // CALLED ON SUCCESSFUL VALIDATION
+                {
+                window.location.replace='/'; // Add your custom form submitted redirect page full path here the forward slash / will redirect to your home page
+			}
+        },
+   });
+
+});
+// Counter
+function limitText(limitField, limitCount, limitNum) {
+    if (limitField.value.length > limitNum) {
+        limitField.value = limitField.value.substring(0, limitNum);
+    } else {
+        limitCount.value = limitNum - limitField.value.length;
+    }
+}
+
+// Focus
+(function() {
+
+	// Create input element for testing
+	var inputs = document.createElement('input');
+	
+	// Create the supports object
+	var supports = {};
+	
+	supports.autofocus   = 'autofocus' in inputs;
+	supports.required    = 'required' in inputs;
+	supports.placeholder = 'placeholder' in inputs;
+
+	// Fallback for autofocus attribute
+	if(!supports.autofocus) {
+		
+	}
+	
+	// Fallback for required attribute
+	if(!supports.required) {
+		
+	}
+
+	// Fallback for placeholder attribute
+	if(!supports.placeholder) {
+		
+	}
+
+})();
+// Textarea Coubtdown
+function limitTextCount(limitField_id, limitCount_id, limitNum)
+{
+    var limitField = document.getElementById(limitField_id);
+    var limitCount = document.getElementById(limitCount_id);
+    var fieldLEN = limitField.value.length;
+
+    if (fieldLEN > limitNum)
+    {
+        limitField.value = limitField.value.substring(0, limitNum);
+    }
+    else
+    {
+        limitCount.innerHTML = (limitNum - fieldLEN) + ' Countdown';
+    }
+}
+// Pass data-foo selected amount to hidden amount field and on to amount field on redirect paypal form
+$(document).ready(function() {
+  $('#events').change(function() {
+   $('#amount').val( $(this).find('option:selected').data('foo') );
+  });
+});
+-->
+</script>
+<style type="text/css">
+<!--
+.outer-margin {
+  margin-left:5px; /* margin for mobile phones */
+  margin-right:5px;
+}
+h4 {
+ color:#5aa663;
+ margin-top:0px;
+ margin-bottom:0px;
+}
+.heading {
+  color:#5aa663;
+  font-weight:bold;
+}
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.landing-page {
+  width:100%;
+  max-width: 882px;
+  margin:auto;
+}
+
+.landing-page *,
+.landing-page *:before,
+.landing-page *:after {
+	-webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box; 
+}
+
+.landing-page .module {
+	border: 1px solid rgb(219, 219, 219);
+	border-radius: 4px;
+	float: left;
+	padding: 2em;
+	width: 48%;
+}
+
+.landing-page .module > *:last-child,
+.landing-page .module > *:last-child > *:last-child,
+.landing-page .module > *:last-child > *:last-child > *:last-child {
+	margin: 0;
+	padding: 0;
+}
+
+.landing-page .note {	
+	background-color: rgb(236, 248, 236);
+	border: 1px dashed;	
+	border-radius: 4px;	
+	color: rgb(115, 136, 96);
+	font-family: georgia;	
+	font-size: .9em;
+	font-style: italic;
+	margin: 20px auto;
+	padding: 2em;
+}
+
+.form-appointment {
+	padding: 2em;
+	background-color: rgb(239, 252, 239);
+	border-radius: 4px;
+	border: 1px solid rgb(130, 228, 130);
+	box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.1);
+	font-family: 'PT Sans', Arial, sans-serif;
+	margin: 20px auto;
+}
+
+.form-appointment input[type=text],
+.form-appointment input[type=email],
+.form-appointment input[type=tel],
+.form-appointment textarea {	
+	border: 1px solid rgb(153, 202, 129);
+	border-radius: .2em;	
+	font-family: 'PT Sans', Arial, sans-serif;
+	font-size: 1.1em;
+	padding: .4em 1em;
+	margin: 0 0 .8em;
+	width: 100%;
+    box-shadow: 0 0 8px rgba(0,0,0,.08) inset;
+}
+
+.form-appointment input[type=text],
+.form-appointment input[type=email],
+.form-appointment input[type=tel],
+.form-appointment input[type=submit],
+.form-appointment textarea {	
+	-webkit-transition: all .2s ease-in-out;
+	   -moz-transition: all .2s ease-in-out;
+	        transition: all .2s ease-in-out;
+}
+
+.form-appointment input[type=text]:active,
+.form-appointment input[type=text]:focus,
+.form-appointment input[type=email]:active,
+.form-appointment input[type=email]:focus,
+.form-appointment input[type=tel]:active,
+.form-appointment input[type=tel]:focus,
+.form-appointment textarea:active,
+.form-appointment textarea:focus {	
+  outline: 0;
+  box-shadow: 0 0 6px rgb(176, 226, 188);
+}
+
+.form-appointment textarea {
+	height: 125px;
+}
+
+.form-appointment input[type=submit] {
+	background-color: rgb(118, 207, 118);
+	border: 1px solid rgb(134, 189, 134);
+	border-radius: 4px;
+	color: rgb(255, 255, 255);
+	cursor: pointer;
+	font-family: inherit;
+	font-size: 1.4em;
+	padding: 10px 18px;
+}
+
+.form-appointment input[type=submit]:hover {
+	background-color: white;
+	color: rgb(118, 207, 118);
+}
+
+input[type=submit] {
+  width:100%;
+  max-width:300px;
+}
+
+.block {
+  display:block;
+  height:45px;
+}
+
+.nocaptcha-block {
+ margin-left:5px;
+}
+.form-appointment .wpcf7-list-item-label {
+	color: rgb(130, 178, 136);
+}
+
+span.wpcf7-list-item {
+	display: block;
+	margin-left: -.02em;
+}
+::-webkit-input-placeholder {
+    color:#888;
+}
+:-moz-placeholder {
+    color:#888;
+}
+::-moz-placeholder {
+    color:#888;
+}
+:-ms-input-placeholder {
+    color:#888;
+}
+/* Placeholder disappears on focus */
+input:focus::-webkit-input-placeholder  {color:transparent !IMPORTANT;}
+input:focus::-moz-placeholder   {color:transparent !IMPORTANT;}
+input:-moz-placeholder   {color:transparent !IMPORTANT;}
+textarea:focus::-webkit-input-placeholder  {color:transparent !IMPORTANT;}
+textarea:focus::-moz-placeholder   {color:transparent !IMPORTANT;}
+textarea:-moz-placeholder   {color:transparent !IMPORTANT;}
+.style1 {color: #FF0000}
+.error {
+  position:relative;
+}
+input[type="checkbox"]:focus{
+ outline:0;
+ border:0;
+}
+-->
+</style>
+<!-- End Head -->
+</head>
+<body>
+<!-- Place All in Body -->
+<div class="outer-margin">
+  <div class="landing-page">
+   <fieldset class="form-appointment">
+      <legend class="heading">Appointments</legend>
+      <div class="wpcf7" id="wpcf7-f560-p590-o1">
+        <form name="jQueryBootstrapForm" id="jQueryBootstrapForm" class="wpcf7-form" action="formmail.php" method="post" enctype='multipart/form-data' autocomplete="on">
+          <div class="group">
+            <div style="width: 48%; float: left; max-width:441px; min-width:315px;">
+              <div style="margin:auto;"> 
+			  <!-- start Input -->
+			  <span class="wpcf7-form-control-wrap text-680 block">
+                <input type="text" name="fullname" id="fullname" value="" size="45" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" placeholder="Fullname *">
+                <label style="color:#00CC00; font-weight:normal; position:relative; top:-10px;" class="error" for="fullname" generated="true"></label>
+                </span> <br>
+				<!-- End Input -->
+				<!-- start Input -->
+                <span class="wpcf7-form-control-wrap email-680 block">
+                <input type="email" name="email" id="email" value="" size="45" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" placeholder="Email *">
+                <label style="color:#00CC00; font-weight:normal; position:relative; top:-10px;" class="error" for="email" generated="true"></label>
+                </span> <br>
+				<!-- End Input -->
+				 <!-- start Input -->
+                <span class="wpcf7-form-control-wrap tel-630 block">
+                <input type="tel" name="phone" id="phone" value="" size="45" class="wpcf7-form-control wpcf7-text wpcf7-tel wpcf7-validates-as-required wpcf7-validates-as-tel phone" placeholder="Phone *">
+                <label style="color:#00CC00; font-weight:normal; position:relative; top:-10px;" class="error" for="phone" generated="true"></label>
+                </span> <br>
+				<!-- End Input -->
+				<!-- start Input -->
+                <span class="wpcf7-form-control-wrap tel-630 block">
+                <input type="text" name="dates" id="dates" value="" size="45" class="wpcf7-form-control wpcf7-text wpcf7-tel wpcf7-validates-as-required wpcf7-validates-as-tel" placeholder="Preferred Dates/Date Range (Optional)">
+                <label style="color:#00CC00; font-weight:normal; position:relative; top:-10px;" class="error" for="dates" generated="true"></label>
+                </span> <br>
+				<!-- End Input -->
+				 <!-- start Text Area -->
+                <span class="wpcf7-form-control-wrap textarea-398">
+                <textarea name="comment" id="comment" class="wpcf7-form-control wpcf7-textarea" placeholder="Notes or requirements (Optional)" onKeyUp="limitTextCount('comment', 'divcount', 400);" onKeyDown="limitTextCount('comment', 'divcount', 400);"></textarea>
+				<span id="divcount" style="font-size:0.8em; color:#999999; position:relative; top:-15px; float:right;">400 Countdown</span>
+                <label style="color:#00CC00; font-weight:normal;  position:relative; top:-15px;" class="error" for="comment" generated="true"></label>
+                </span>
+				<!-- End Text Area -->
+			  </div>
+             </div>
+            <div style="width: 48%; float: right; max-width:441px; min-width:315px;">
+              <div style="margin:auto;">
+                <h4>What is the best way to reach you?</h4>
+                <div><span class="wpcf7-form-control-wrap radio-98" style="display:block; height:70px;"><span class="wpcf7-form-control wpcf7-radio">
+				  <!-- Phone Start -->
+				  <span class="wpcf7-list-item">
+                  <label>
+                  <input type="radio" name="radio_email_phone" id="radio_email_phone" value="Phone">
+                  &nbsp;<span class="wpcf7-list-item-label">Phone</span></label>
+                  </span>
+				  <!-- Phone End -->
+				  <!-- Email Start -->
+				  <span class="wpcf7-list-item">
+                  <label  class="static">
+                  <input type="radio" name="radio_email_phone" id="radio_email_phone" value="Email">
+                  &nbsp;<span class="wpcf7-list-item-label">Email</span></label>
+                  </span>
+				  <!-- Email End -->
+                  <label style="color:#00CC00; font-weight:normal;" class="error" for="radio_email_phone" generated="true"></label>
+                  </span> </span> </div>
+                <h4>Days  you are available for your appointment:</h4>
+                <div><span class="wpcf7-form-control-wrap checkbox-465"><span class="wpcf7-form-control wpcf7-checkbox">
+				  <!-- Monday Start -->
+				  <span class="wpcf7-list-item">
+                  <label>
+                  <input type="checkbox" name="checkbox_days[]" id="checkbox_days" value="Monday">
+                  &nbsp;<span class="wpcf7-list-item-label">Monday</span></label>
+                  </span>
+				  <!-- End -->
+				  <!-- Tuesday Start -->
+				  <span class="wpcf7-list-item">
+                  <label>
+                  <input type="checkbox" name="checkbox_days[]" id="checkbox_days" value="Tuesday">
+                  &nbsp;<span class="wpcf7-list-item-label">Tuesday</span></label>
+                  </span>
+				  <!-- End -->
+				  <!-- Wednesday Start -->
+				  <span class="wpcf7-list-item">
+                  <label>
+                  <input type="checkbox" name="checkbox_days[]" id="checkbox_days" value="Wednesday">
+                  &nbsp;<span class="wpcf7-list-item-label">Wednesday</span></label>
+                  </span>
+				  <!-- End -->
+				  <!-- Thursday Start -->
+				  <span class="wpcf7-list-item">
+                  <label>
+                  <input type="checkbox" name="checkbox_days[]" id="checkbox_days" value="Thursday">
+                  &nbsp;<span class="wpcf7-list-item-label">Thursday</span></label>
+                  </span>
+				  <!-- End -->
+				  <!-- Friday Start -->
+				  <span class="wpcf7-list-item">
+                  <label>
+                  <input type="checkbox" name="checkbox_days[]" id="checkbox_days" value="Friday">
+                  &nbsp;<span class="wpcf7-list-item-label">Friday</span></label>
+                  </span>
+				  <!-- End -->
+				  <!-- Saturday Start -->
+				  <span class="wpcf7-list-item">
+                  <label>
+                  <input type="checkbox" name="checkbox_days[]" id="checkbox_days" value="Saturday">
+                  &nbsp;<span class="wpcf7-list-item-label">Saturday</span></label>
+                  </span>
+				  <!-- End --> 
+				  <!-- Sunday Start -->
+				  <span style="display:block; height:40px;">
+				  <span class="wpcf7-list-item">
+                  <label>
+                  <input type="checkbox" name="checkbox_days[]" id="checkbox_days" value="Sunday">
+                  &nbsp;<span class="wpcf7-list-item-label">Sunday</span></label>
+                  </span> 
+				  <!-- End -->
+				  <label style="color:#00CC00; font-weight:normal;" class="error" for="checkbox_days[]" generated="true"></label>
+				  </span>
+				  </span></span></div>
+                <h4 style="margin-top:10px;">Best time of day for your appointment:</h4>
+                <div><span class="wpcf7-form-control-wrap checkbox-246"><span class="wpcf7-form-control wpcf7-checkbox">
+				  <!-- Morning Start -->
+				  <span class="wpcf7-list-item">
+                  <label>
+                  <input type="radio" name="radio_am_pm" id="radio_am_pm" value="Morning">
+                  &nbsp;<span class="wpcf7-list-item-label">Morning</span></label>
+                  </span>
+				  <!-- Morning End -->
+				  <!-- Afternoon Start -->
+				  <span class="wpcf7-list-item">
+                  <label>
+                  <input type="radio" name="radio_am_pm" id="radio_am_pm" value="Afternoon">
+                  &nbsp;<span class="wpcf7-list-item-label">Afternoon</span></label>
+                  </span>
+				  <!-- Afternoon End -->
+				  <label style="color:#00CC00; font-weight:normal;" class="error" for="radio_am_pm" generated="true"></label>
+				  </span></span></div>
+              </div>
+            </div>
+          </div>
+		  <div>&nbsp;</div>
+		  <!-- NoCaptcha -->
+        <!--  <div class='form-group nocaptcha-block'>
+            <label class="control-label" for="hiddenRecaptcha" style="color:#82b288">Security</label>
+             <!-- Google No Captcha Human Security Scripts -->
+            <!-- <input type="hidden" class="hiddenRecaptcha required" name="hiddenRecaptcha" id="hiddenRecaptcha">
+             <div class="g-recaptcha" data-sitekey="Enter Your Public Site Key Here" data-callback="recaptchaCallback" style="transform:scale(0.90);-webkit-transform:scale(0.90);transform-origin:0 0;-webkit-transform-origin:0 0; color:transparent; font-weight:normal; line-height:0px;" tabindex="6"> </div>
+             <div> 
+             -->
+            <label style="color:#00CC00; font-weight:normal; position:relative; top:-5px;" class="error" for="hiddenRecaptcha" generated="true"></label>
+           </div>
+          </div>
+          <div style="text-align: center; padding-top: 2em; border-top: 1px solid rgb(153, 202, 129); margin-top: 1em;">
+            <input type="submit" name="submit" value="Request Appointment" class="wpcf7-form-control wpcf7-submit">
+            <img class="ajax-loader" src="http://www.professionalaudiologicalservices.com/wp-content/plugins/contact-form-7/images/ajax-loader.gif" alt="Sending ..." style="visibility: hidden;"></div>
+          <div class="wpcf7-response-output wpcf7-display-none"></div>
+        </form>
+      </div>
+	 </fieldset>
+    </div>
+  </div>
+</div>
+<!-- End Body -->
+</body>
+</html>
